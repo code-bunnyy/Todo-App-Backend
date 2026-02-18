@@ -2,6 +2,7 @@ import { decode } from 'next-auth/jwt';
 
 export const authenticateUser = async (req, res, next) => {
     try{
+        console.log("Cookies recieved : ", req?.cookies);
         const token = req?.cookies["next-auth.session-token"];
 
         if(!token) return res.status(401).json({
